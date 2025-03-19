@@ -1,6 +1,6 @@
-namespace Asp.netCoreWeb.Models.Domain;
+namespace Asp.netCoreWeb.Models.DTO;
 
-public class Region
+public class RegionDto
 {
     public Guid Id { get; set; }
 

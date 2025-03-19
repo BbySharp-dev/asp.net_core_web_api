@@ -1,12 +1,12 @@
 using System.Reflection;
 using Asp.netCoreWeb.Data;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<NzWalksDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("NzWalksConnectionString")));
+builder.Services.AddDbContext<NzWalksDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("NzWalksConnectionString")));
 
 // Thêm dịch vụ cho controllers
 builder.Services.AddControllers();
@@ -22,7 +22,7 @@ builder.Services.AddSwaggerGen(options =>
         Contact = new OpenApiContact
         {
             Name = "Doan Minh Truong",
-            Email = "doanminhtruong53.dev@gmail.com",
+            Email = "doanminhtruong53.dev@gmail.com"
         }
     });
     var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
@@ -43,4 +43,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-

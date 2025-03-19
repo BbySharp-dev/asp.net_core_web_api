@@ -3,15 +3,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Asp.netCoreWeb.Data;
 
-public class NzWalksDbContext: DbContext
+public class NzWalksDbContext(DbContextOptions dbContextOptions) : DbContext(dbContextOptions)
 {
     // ctor Shortcut
-    public NzWalksDbContext(DbContextOptions dbContextOptions): base(dbContextOptions)
-    {
-        
-    }
 
-    public DbSet<Difficulty> Difficulties  { get; set; }
+    public DbSet<Difficulty> Difficulties { get; set; }
     public DbSet<Region> Regions { get; set; }
     public DbSet<Walk> Walks { get; set; }
 }
